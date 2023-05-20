@@ -1,0 +1,19 @@
+---
+version: 0.2
+
+phases:
+  install:
+    commands:
+# Installing NewMan CLI to do Automated Unit Testing
+      - echo Installing NewMan CLI - `pwd`  
+      - npm install newman
+      - echo NewMan CLI Instattion Completed  `date` in `pwd`
+  build:
+    commands:
+# Running NewMan CLI   
+      - echo Starting NewMan CLI Testing for SGW `date` in `pwd`
+      - newman run StaycayGoWhere.postman_collection.json > newman-report.txt
+      
+artifacts:
+  files: newman-report.txt'
+
